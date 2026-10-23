@@ -1,5 +1,5 @@
 {% set name = "intervalues" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://files.pythonhosted.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 551b4c2fea5e7e9c893a6df846756fe5d173fe900492c04034df12e48b837471
+  sha256: 8ebce51456d81acb3093203e1dbaf2feb3715e71f611d6381580860ede0e8b1c
 
 build:
-  number: 3
-  skip: True  # [py<310]
+  number: 0
+  skip: true  # [py<310]
   script:
     - {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation --disable-pip-version-check
     - cd rust && cargo-bundle-licenses --format yaml --output ../THIRDPARTY.yml
